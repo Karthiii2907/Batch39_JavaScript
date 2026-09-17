@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Management System</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <h1>EMPLOYEE MANAGEMENT SYSTEM</h1>
+
+        <div class="date-time">
+
+            <div>
+                Today:
+                <span id="currentDate"></span>
+            </div>
+
+            <div>
+                Time:
+                <span id="currentTime"></span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- SALARY DASHBOARD -->
+
+    <section class="salary-dashboard">
+
+        <h2>
+            Employee Salary Dashboard
+        </h2>
+
+        <div class="salary-grid">
+
+            <div class="salary-box">
+
+                <h3>
+                    Total Employees
+                </h3>
+
+                <p id="totalEmployees">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="salary-box">
+
+                <h3>
+                    Total Salary
+                </h3>
+
+                <p id="totalSalary">
+                    ₹0
+                </p>
+
+            </div>
+
+
+            <div class="salary-box">
+
+                <h3>
+                    Average Salary
+                </h3>
+
+                <p id="averageSalary">
+                    ₹0
+                </p>
+
+            </div>
+
+
+            <div class="salary-box">
+
+                <h3>
+                    Highest Salary
+                </h3>
+
+                <p id="highestSalary">
+                    ₹0
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HIGHEST PAID -->
+
+    <section class="highest-paid">
+
+        <h2>
+            Highest Paid Employee
+        </h2>
+
+        <div id="highestEmployee">
+
+            No employee data available.
+
+        </div>
+
+    </section>
+
+
+    <!-- SEARCH / FILTER / SORT -->
+
+    <section class="controls">
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search employee by name...">
+
+            <button id="searchButton">
+                Search
+            </button>
+
+        </div>
+
+
+        <div class="department-buttons">
+
+            <button
+                class="department-btn active"
+                data-department="All">
+
+                All Employees
+
+            </button>
+
+
+            <button
+                class="department-btn"
+                data-department="IT">
+
+                IT
+
+            </button>
+
+
+            <button
+                class="department-btn"
+                data-department="HR">
+
+                HR
+
+            </button>
+
+
+            <button
+                class="department-btn"
+                data-department="Finance">
+
+                Finance
+
+            </button>
+
+
+            <button
+                class="department-btn"
+                data-department="Marketing">
+
+                Marketing
+
+            </button>
+
+        </div>
+
+
+        <!-- SORT -->
+
+        <div class="sort-box">
+
+            <label for="sortSelect">
+                Sort Employees:
+            </label>
+
+            <select id="sortSelect">
+
+                <option value="default">
+                    Default
+                </option>
+
+                <option value="nameAsc">
+                    Name A-Z
+                </option>
+
+                <option value="nameDesc">
+                    Name Z-A
+                </option>
+
+                <option value="ageAsc">
+                    Age Low to High
+                </option>
+
+                <option value="ageDesc">
+                    Age High to Low
+                </option>
+
+                <option value="salaryAsc">
+                    Salary Low to High
+                </option>
+
+                <option value="salaryDesc">
+                    Salary High to Low
+                </option>
+
+            </select>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATUS -->
+
+    <section class="status-section">
+
+        <p id="loadingMessage">
+            Loading employee data...
+        </p>
+
+        <p id="statusMessage"></p>
+
+        <h2>
+            Employee Count:
+            <span id="employeeCount">0</span>
+        </h2>
+
+    </section>
+
+
+    <!-- EMPLOYEE LIST -->
+
+    <main>
+
+        <section class="employee-section">
+
+            <h2 class="section-title">
+                Employee List
+            </h2>
+
+            <div
+                id="employeeContainer"
+                class="employee-grid">
+            </div>
+
+        </section>
+
+
+        <!-- ADD EMPLOYEE -->
+
+        <section class="add-section">
+
+            <h2>
+                ADD EMPLOYEE
+            </h2>
+
+            <form id="employeeForm">
+
+
+                <div class="form-group">
+
+                    <label for="employeeName">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="employeeName"
+                        placeholder="Enter employee name">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="employeeAge">
+                        Age
+                    </label>
+
+                    <input
+                        type="number"
+                        id="employeeAge"
+                        placeholder="Enter age">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="employeeEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="employeeEmail"
+                        placeholder="Enter email">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="employeeDepartment">
+                        Department
+                    </label>
+
+                    <select id="employeeDepartment">
+
+                        <option value="">
+                            Select Department
+                        </option>
+
+                        <option value="IT">
+                            IT
+                        </option>
+
+                        <option value="HR">
+                            HR
+                        </option>
+
+                        <option value="Finance">
+                            Finance
+                        </option>
+
+                        <option value="Marketing">
+                            Marketing
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="employeeSalary">
+                        Salary
+                    </label>
+
+                    <input
+                        type="number"
+                        id="employeeSalary"
+                        placeholder="Enter salary">
+
+                </div>
+
+
+                <p
+                    id="formError"
+                    class="form-error">
+                </p>
+
+
+                <button
+                    type="submit"
+                    class="add-button">
+
+                    Add Employee
+
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
